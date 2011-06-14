@@ -12,6 +12,7 @@ end
 
 group :development do
   gem "sinatra-reloader"
+  gem "heroku"
 end
 
 group :test do
