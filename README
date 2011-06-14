@@ -1,3 +1,6 @@
 This is a Sinatra app that provides geoip information as a web service. It is not the first of it's kind, https://github.com/topfunky/sinatra-geoip is a predecessor and this app does pretty much the same thing.
 
 This product includes GeoLite data created by MaxMind, available from http://www.maxmind.com/. The MaxMind GeoLite data is bundled, which is allowed under the redistribution terms here: http://www.maxmind.com/app/geolitecity
+
+Requirements:
+The MaxMind C library, which is available through most package managers (e.g. homebrew, apt, or yum) or from http://www.maxmind.com/app/c . Note that this library is available on heroku.
