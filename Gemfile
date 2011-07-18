@@ -2,6 +2,7 @@ source 'http://rubygems.org'
 
 gem "thin"
 gem "rack"
+gem "rack-contrib"
 gem "sinatra"
 gem "json"
 gem "geoip"

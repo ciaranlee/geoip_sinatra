@@ -9,6 +9,8 @@ require 'sinatra'
 require "sinatra/reloader" if development?
 require 'json'
 require 'geoip'
+require 'rack/contrib/jsonp'
+use Rack::JSONP
 
 configure :production do
   require 'newrelic_rpm'
