@@ -19,7 +19,7 @@ configure do
 end
 
 get '/' do
-  'OK'
+  'try something like /location.json?ip=134.226.83.50'
 end
 
 get '/location.json' do
