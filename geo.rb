@@ -21,7 +21,7 @@ configure do
 end
 
 get '/' do
-  'try something like /location.json?ip=134.226.83.50'
+  'try something like /location.json?ip=134.226.83.50 to check a specific IP or /locateme.json to geocode your own IP'
 end
 
 get '/location.json' do
