@@ -33,3 +33,12 @@ get '/location.json' do
 
   returnable.to_json
 end
+
+get '/locateme.json' do
+  content_type :json, :charset => "utf-8"
+  returnable = {:message => "your IP could not be geocoded"}
+  if geoip_result = GEOIP.city(request.ip)
+    returnable = geoip_result.to_hash
+  end
+  returnable.to_json
+end
