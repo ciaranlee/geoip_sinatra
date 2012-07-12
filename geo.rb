@@ -25,13 +25,18 @@ get '/' do
 end
 
 get '/location.json' do
-  content_type :json, :charset => "utf-8"
-  headers['Cache-Control'] = "public; max-age=#{365*24*60*60}"
-
+  callback = params.delete('callback')
   returnable = {:message => "you didn't supply an IP to geocode!"}
   returnable = GEOIP.city(params[:ip]).to_hash if params[:ip]
-
-  returnable.to_json
+  json = returnable.to_json
+  if callback
+    content_type :js, :charset => "utf-8"
+    response = "#{callback}(#{json})" 
+  else
+    content_type :json, :charset => "utf-8"
+    response = json
+  end
+  response
 end
 
 get '/locateme.json' do
