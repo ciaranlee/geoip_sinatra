@@ -31,7 +31,7 @@ get '/location.json' do
   json = returnable.to_json
   if callback
     content_type :js, :charset => "utf-8"
-    response = "#{callback}(#{json})" 
+    response = "#{callback}(#{json})"
   else
     content_type :json, :charset => "utf-8"
     response = json
@@ -40,10 +40,19 @@ get '/location.json' do
 end
 
 get '/locateme.json' do
-  content_type :json, :charset => "utf-8"
+  callback = params.delete('callback')
   returnable = {:message => "your IP could not be geocoded"}
   if geoip_result = GEOIP.city(request.ip)
     returnable = geoip_result.to_hash
   end
-  returnable.to_json
+  json = returnable.to_json
+  if callback
+    content_type :js, :charset => "utf-8"
+    response = "#{callback}(#{json})"
+  else
+    content_type :json, :charset => "utf-8"
+    response = json
+  end
+  response
+
 end
