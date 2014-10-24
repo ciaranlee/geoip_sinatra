@@ -4,7 +4,6 @@ There are two ways of getting geoip information:
 * /location.json?ip=134.226.83.50 - To find the location of a specific IP
 * /locateme.json - find out geo information about your own IP
 
-
 This product includes GeoLite data created by MaxMind, available from http://www.maxmind.com/. The MaxMind GeoLite data is bundled, which is allowed under the redistribution terms here: http://www.maxmind.com/app/geolitecity
 
 Requirements:
